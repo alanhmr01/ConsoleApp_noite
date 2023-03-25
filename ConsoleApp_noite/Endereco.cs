@@ -4,38 +4,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp_noite
+namespace Console_App_alan
 {
     public class Endereco
     {
         private string Rua;
-        private string Numero;
+        private int N;
         private string Bairro;
-        private string Cep;
+        private string CEP;
         private string Cidade;
         private string Estado;
 
-        public Endereco(string rua, string numero, string bairro, string cep, string cidade, string estado)
+        public Endereco(string rua, int n, string bairro, string cep, string cidade, string estado)
         {
             Rua = rua;
-            Numero = numero;
+            N = n;
             Bairro = bairro;
-            Cep = cep;
+            CEP = cep;
             Cidade = cidade;
             Estado = estado;
         }
-        public void setRua(string rua) {Rua = rua;}
-        public void setNumero(string numero){Numero = numero;}
-        public void setBairro(string bairro){Bairro = bairro;}
-        public void setCep(string cep) { Cep = cep;}
-        public void setCidade(string cidade) { Cidade = cidade;}
-        public void setEstado(string estado) { Estado = estado;}
+        public string EnderecoCompleto()
+        {
+            return Rua + ", " + N + " Bairro:" + Bairro + "Cidade: " + Cidade + "/" + Estado;
+        }
 
-        public string getRua() {  return Rua;}
-        public string getNumero() {  return Numero;}
-        public string getBairro() {  return Bairro;}
-        public string getCep() { return Cep;}
-        public string getCidade() {  return Cidade;}
-        public string getEstado() {  return Estado;}
+        public Endereco BuscaporCep(string cep)
+        {
+            return new Endereco("", 5, "", cep, "", "");
+        }
+        public string EstadoPorCidade(string estado)
+        {
+            if (Estado == "sp")
+            {
+                return "Monte Alto";
+            }
+            return Cidade;
+        }
+
+        public void InserirNoBanco(Endereco endereco)
+        {
+            //db.ENDERECO.ADD(endereco)
+            //db.savechanges();
+        }
+        public string GetRua() => Rua;
+        public void setRua(string rua)
+        {
+            Rua = rua;
+        }
+        public int getN() => N;
+
+        public void setN(int n)
+        {
+            N = n;
+        }
+        public string getCep() => CEP;
+
+        public void setCEP(string cep)
+        {
+            CEP = cep;
+        }
+        public string getBairro() => Bairro;
+
+        public void setBairro(string bairro)
+        {
+            Bairro = bairro;
+        }
+        public string getCidade() => Cidade;
+
+        public void setCidade(string cidade)
+        {
+            Cidade = cidade;
+        }
+        public string getEstado() => Estado;
+
+        public void setN(string estado)
+        {
+            Estado = estado;
+        }
     }
 }
