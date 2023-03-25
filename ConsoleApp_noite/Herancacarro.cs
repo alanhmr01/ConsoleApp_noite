@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_App_Alan.HERANCA
+namespace ConsoleApp_noite
 {
     public class Carro : Veiculo
     {
